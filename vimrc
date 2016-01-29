@@ -689,6 +689,7 @@ endif
 
 if has('gui_running')
     set guioptions-=T           " Remove the toolbar
+    set guioptions-=m           " Remove the menu bar
     set lines=40                " 40 lines of text instead of 24
     if LINUX() && has("gui_running")
         set guifont=Andale\ Mono\ Regular\ 12,Menlo\ Regular\ 11,Consolas\ Regular\ 12,Courier\ New\ Regular\ 14
