@@ -10,3 +10,5 @@ if [ ! -L .vimrc ]; then
 fi
 
 vim +BundleInstall +BundleClean +qall
+
+./.vim/bundle/fonts/install.sh
