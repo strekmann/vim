@@ -11,4 +11,4 @@ fi
 
 vim +BundleInstall +BundleClean +qall
 
-./.vim/bundle/fonts/install.sh
+~/.vim/bundle/fonts/install.sh
