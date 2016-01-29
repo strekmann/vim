@@ -45,7 +45,7 @@ let g:jsx_ext_required = 0
 " Vundle setup and plugins
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin
+call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 
