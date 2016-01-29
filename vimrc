@@ -109,6 +109,7 @@ Plugin 'tpope/vim-cucumber'
 Plugin 'cespare/vim-toml'
 Plugin 'quentindecock/vim-cucumber-align-pipes'
 Plugin 'saltstack/salt-vim'
+Plugin 'pmsorhaindo/syntastic-local-eslint.vim'
 
 call vundle#end()
 filetype plugin indent on
