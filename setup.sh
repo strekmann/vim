@@ -1,5 +1,12 @@
 #!/usr/bin/env bash
 cd ~/
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-curl https://raw.githubusercontent.com/strekmann/vim/master/vimrc -o ~/.vimrc
+
+if [ ! -e .vimrc ]; then
+    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+fi
+
+if [ ! -L .vimrc ]; then
+    curl https://raw.githubusercontent.com/strekmann/vim/master/vimrc -o ~/.vimrc
+fi
+
 vim +BundleInstall +BundleClean +qall
