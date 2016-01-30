@@ -693,7 +693,7 @@ if has('gui_running')
     set guioptions-=m           " Remove the menu bar
     set lines=40                " 40 lines of text instead of 24
     if LINUX() && has("gui_running")
-        set guifont=Literation\ Mono\ Powerline\ 12,DejaVu\ Sans\ Mono\ 12,Andale\ Mono\ Regular\ 12,Menlo\ Regular\ 11,Consolas\ Regular\ 12,Courier\ New\ Regular\ 14
+        set guifont=Sauce\ Code\ Powerline\ Regular\ 11,Literation\ Mono\ Powerline\ 11,DejaVu\ Sans\ Mono\ 11
     elseif OSX() && has("gui_running")
         set guifont=Andale\ Mono\ Regular:h12,Menlo\ Regular:h15,Consolas\ Regular:h12,Courier\ New\ Regular:h14
     elseif WINDOWS() && has("gui_running")
