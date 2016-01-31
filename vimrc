@@ -1,3 +1,5 @@
+set encoding=utf-8
+
 silent function! OSX()
     return has('macunix')
 endfunction
@@ -695,7 +697,7 @@ if has('gui_running')
     if LINUX() && has("gui_running")
         set guifont=Sauce\ Code\ Powerline\ Regular\ 11,Literation\ Mono\ Powerline\ 11,DejaVu\ Sans\ Mono\ 11
     elseif OSX() && has("gui_running")
-        set guifont=Andale\ Mono\ Regular:h12,Menlo\ Regular:h15,Consolas\ Regular:h12,Courier\ New\ Regular:h14
+        set guifont=Source\ Code\ Pro\ for\ Powerline:h14,Andale\ Mono\ Regular:h12,Menlo\ Regular:h15,Consolas\ Regular:h12,Courier\ New\ Regular:h14
     elseif WINDOWS() && has("gui_running")
         set guifont=Andale_Mono:h10,Menlo:h10,Consolas:h10,Courier_New:h10
     endif
