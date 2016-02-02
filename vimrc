@@ -802,3 +802,8 @@ augroup CPT
   au BufWritePost *.cpt u
   au BufWritePost *.cpt set nobin
 augroup END
+
+autocmd FileType jade setlocal expandtab shiftwidth=2 softtabstop=2 tabstop=2
+autocmd FileType jade let b:surround_125 = "{{\r}}"
+
+:noremap tt :tab split<CR>
