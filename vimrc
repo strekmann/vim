@@ -182,6 +182,8 @@ if has('persistent_undo')
     set undoreload=10000
 endif
 
+set backupcopy=yes
+
 " Add exclusions to mkview and loadview
 " eg: *.*, svn-commit.tmp
 let g:skipview_files = [
