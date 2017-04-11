@@ -115,6 +115,7 @@ Plugin 'cespare/vim-toml'
 Plugin 'quentindecock/vim-cucumber-align-pipes'
 Plugin 'saltstack/salt-vim'
 Plugin 'pmsorhaindo/syntastic-local-eslint.vim'
+Plugin 'chriskempson/base16-vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -190,11 +191,15 @@ let g:skipview_files = [
     \ '\[example pattern\]'
     \ ]
 
-let g:solarized_termcolors=256
-let g:solarized_termtrans=1
-let g:solarized_contrast="normal"
-let g:solarized_visibility="normal"
-color solarized             " Load a colorscheme
+"let g:solarized_termcolors=256
+"let g:solarized_termtrans=1
+"let g:solarized_contrast="normal"
+"let g:solarized_visibility="normal"
+"color solarized             " Load a colorscheme
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
 
 set tabpagemax=15
 set showmode
@@ -699,7 +704,7 @@ if has('gui_running')
     set guioptions-=m           " Remove the menu bar
     set lines=40                " 40 lines of text instead of 24
     if LINUX() && has("gui_running")
-        set guifont=Sauce\ Code\ Powerline\ Regular\ 11,Literation\ Mono\ Powerline\ 11,DejaVu\ Sans\ Mono\ 11
+        set guifont=Sauce\ Code\ Powerline\ Regular\ 10,Literation\ Mono\ Powerline\ 10,DejaVu\ Sans\ Mono\ 10
     elseif OSX() && has("gui_running")
         set guifont=Source\ Code\ Pro\ for\ Powerline:h14,Andale\ Mono\ Regular:h12,Menlo\ Regular:h15,Consolas\ Regular:h12,Courier\ New\ Regular:h14
     elseif WINDOWS() && has("gui_running")
