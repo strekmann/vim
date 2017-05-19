@@ -116,6 +116,7 @@ Plugin 'quentindecock/vim-cucumber-align-pipes'
 Plugin 'saltstack/salt-vim'
 Plugin 'pmsorhaindo/syntastic-local-eslint.vim'
 Plugin 'chriskempson/base16-vim'
+Plugin 'rust-lang/rust.vim'
 
 call vundle#end()
 filetype plugin indent on
