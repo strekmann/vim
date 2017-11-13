@@ -40,9 +40,10 @@ endif
 " Settings
 let g:AutoPairsShortcutFastWrap = ''
 let g:EclimJavascriptLintEnabled = 0
-let g:syntastic_javascript_checkers = ['eslint']
+"let g:syntastic_javascript_checkers = ['eslint']
 let g:jsx_ext_required = 0
 let g:airline_powerline_fonts=1
+"let g:syntastic_html_tidy_ignore_errors=["proprietary attribute " ,"trimming empty <", "unescaped &" , "lacks \"action", "is not recognized!", "discarding unexpected"]
 
 " Vundle setup and plugins
 filetype off
@@ -86,7 +87,7 @@ Plugin 'reedes/vim-litecorrect'
 Plugin 'reedes/vim-textobj-sentence'
 Plugin 'reedes/vim-textobj-quote'
 Plugin 'reedes/vim-wordy'
-Plugin 'scrooloose/syntastic'
+"Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-fugitive'
 Plugin 'mattn/webapi-vim'
 Plugin 'mattn/gist-vim'
@@ -114,8 +115,12 @@ Plugin 'tpope/vim-cucumber'
 Plugin 'cespare/vim-toml'
 Plugin 'quentindecock/vim-cucumber-align-pipes'
 Plugin 'saltstack/salt-vim'
-Plugin 'pmsorhaindo/syntastic-local-eslint.vim'
+"Plugin 'pmsorhaindo/syntastic-local-eslint.vim'
 Plugin 'chriskempson/base16-vim'
+Plugin 'dolanor/zeitgeist.vim'
+Plugin 'vim-scripts/dbext.vim'
+Plugin 'racer-rust/vim-racer'
+Plugin 'w0rp/ale'
 
 call vundle#end()
 filetype plugin indent on
@@ -191,11 +196,6 @@ let g:skipview_files = [
     \ '\[example pattern\]'
     \ ]
 
-"let g:solarized_termcolors=256
-"let g:solarized_termtrans=1
-"let g:solarized_contrast="normal"
-"let g:solarized_visibility="normal"
-"color solarized             " Load a colorscheme
 if filereadable(expand("~/.vimrc_background"))
   let base16colorspace=256
   source ~/.vimrc_background
@@ -247,17 +247,16 @@ set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight problematic white
 
 set nowrap                      " Do not wrap long lines
 set autoindent                  " Indent at the same level of the previous line
-set shiftwidth=4                " Use indents of 4 spaces
-set expandtab                   " Tabs are spaces, not tabs
 set tabstop=4                   " An indentation every four columns
-set softtabstop=4               " Let backspace delete indent
+set shiftwidth=0                " Use indents of tabstop size
+set expandtab                   " Tabs are spaces, not tabs
+set softtabstop=-1              " Let backspace delete indent, following tabstop size
 set nojoinspaces                " Prevents inserting two spaces after punctuation on a join (J)
 set splitright                  " Puts new vsplit windows to the right of the current
 set splitbelow                  " Puts new split windows to the bottom of the current
 set pastetoggle=<F12>           " pastetoggle (sane indentation on pastes)
 
 autocmd FileType c,cpp,java,go,php,javascript,puppet,python,rust,twig,xml,yml,perl,sql autocmd BufWritePre <buffer> if !exists('g:spf13_keep_trailing_whitespace') | call StripTrailingWhitespace() | endif
-autocmd BufNewFile,BufRead *.html.twig set filetype=html.twig
 autocmd FileType haskell,puppet,ruby,yml setlocal expandtab shiftwidth=2 softtabstop=2
 autocmd BufNewFile,BufRead *.coffee set filetype=coffee
 autocmd FileType haskell setlocal commentstring=--\ %s
@@ -495,18 +494,12 @@ endif
 nmap <leader>jt <Esc>:%!python -m json.tool<CR><Esc>:set filetype=json<CR>
 let g:vim_json_syntax_conceal = 0
 
-" PyMode
-" Disable if python support not present
-if !has('python')
-    let g:pymode = 0
-endif
-
-if isdirectory(expand("~/.vim/bundle/python-mode"))
-    let g:pymode_lint_checkers = ['pyflakes']
-    let g:pymode_trim_whitespaces = 0
-    let g:pymode_options = 0
-    let g:pymode_rope = 0
-endif
+"if isdirectory(expand("~/.vim/bundle/python-mode"))
+    "let g:pymode_lint_checkers = ['pyflakes']
+    "let g:pymode_trim_whitespaces = 0
+    "let g:pymode_options = 0
+    "let g:pymode_rope = 0
+"endif
 
 " ctrlp
 if isdirectory(expand("~/.vim/bundle/ctrlp.vim/"))
@@ -572,7 +565,7 @@ if isdirectory(expand("~/.vim/bundle/vim-fugitive/"))
 endif
 
 
-" neocomplete 
+" neocomplete
 let g:acp_enableAtStartup = 0
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_smart_case = 1
@@ -670,7 +663,7 @@ if isdirectory(expand("~/.vim/bundle/vim-indent-guides/"))
     let g:indent_guides_enable_on_vim_startup = 1
 endif
 
-" Wildfire 
+" Wildfire
 let g:wildfire_objects = {
     \ "*" : ["i'", 'i"', "i)", "i]", "i}", "ip"],
     \ "html,xml" : ["at"],
