@@ -121,6 +121,7 @@ Plugin 'dolanor/zeitgeist.vim'
 Plugin 'vim-scripts/dbext.vim'
 Plugin 'racer-rust/vim-racer'
 Plugin 'w0rp/ale'
+Plugin 'rust-lang/rust.vim'
 
 call vundle#end()
 filetype plugin indent on
